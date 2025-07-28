@@ -1,11 +1,11 @@
-import { enums } from '@kasi-flow/shared';
+import { ApplicationStatus } from '@gig-genie/shared';
 import type { Job, Candidate } from './index';
 
 export type Application = {
   id: string;
   jobId: string;
   candidateId: string;
-  status: enums.ApplicationStatus;
+  status: ApplicationStatus;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date | null;
@@ -14,11 +14,11 @@ export type Application = {
 export type ApplicationCreateInput = {
   jobId: string;
   candidateId: string;
-  status?: enums.ApplicationStatus;
+  status?: ApplicationStatus;
 };
 
 export type ApplicationUpdateInput = Partial<{
-  status: enums.ApplicationStatus;
+  status: ApplicationStatus;
 }>;
 
 export type ApplicationWithRelations = Application & {

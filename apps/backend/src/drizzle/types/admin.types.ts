@@ -1,10 +1,10 @@
-import { enums } from '@kasi-flow/shared';
+import { AdminType } from '@gig-genie/shared';
 
 export type Admin = {
   id: string;
   firstName: string;
   lastName: string;
-  type: enums.AdminType;
+  type: AdminType;
   userId: string;
   createdAt: Date;
   updatedAt: Date;
@@ -14,12 +14,12 @@ export type Admin = {
 export type AdminCreateInput = {
   firstName: string;
   lastName: string;
-  type?: enums.AdminType;
+  type?: AdminType;
   userId: string;
 };
 
 export type AdminUpdateInput = Partial<{
   firstName: string;
   lastName: string;
-  type: enums.AdminType;
+  type: AdminType;
 }>;
