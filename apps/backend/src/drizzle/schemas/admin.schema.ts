@@ -4,13 +4,13 @@ import { users } from './user.schema';
 import { AdminType } from '@gig-genie/shared';
 
 
-export const adminTypeEnum = pgEnum('user_role', AdminType);
+export const admin_typeEnum = pgEnum('admin_type', AdminType);
 
 export const admins = pgTable('Admins', {
   id: uuid('id').primaryKey().defaultRandom(),
   firstName: varchar('firstName', { length: 255 }).notNull(),
   lastName: varchar('lastName', { length: 255 }).notNull(),
-  type: adminTypeEnum('type').notNull().default(AdminType.MODERATOR),
+  type: admin_typeEnum('type').notNull().default(AdminType.MODERATOR),
   userId: uuid('userId')
     .notNull()
     .references(() => users.id, {
