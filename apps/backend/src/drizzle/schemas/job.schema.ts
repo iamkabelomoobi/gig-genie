@@ -33,7 +33,7 @@ export const jobs = pgTable('Jobs', {
       onDelete: 'cascade',
       onUpdate: 'cascade',
     }),
-  views: integer('views'),
+  views: integer('views').default(0),
   isPublic: boolean('isPublic'),
   createdAt: timestamp('createdAt').notNull().defaultNow(),
   updatedAt: timestamp('updatedAt').notNull().defaultNow(),
