@@ -1,4 +1,4 @@
-import { enums } from '@kasi-flow/shared';
+import { JobType } from "@gig-genie/shared";
 import { Employer } from './employer.types';
 import { Application } from './application.types';
 
@@ -10,7 +10,7 @@ export type Job = {
   requirements?: string | null;
   benefits?: string | null;
   location: string;
-  type: enums.JobType;
+  type: JobType;
   vacancy?: number | null;
   deadline: Date;
   tags?: string | null;
@@ -29,7 +29,7 @@ export type JobCreateInput = {
   requirements?: string;
   benefits?: string;
   location: string;
-  type?: enums.JobType;
+  type?: JobType;
   vacancy?: number;
   deadline: Date;
   tags?: string;
@@ -44,7 +44,7 @@ export type JobUpdateInput = Partial<{
   requirements: string;
   benefits: string;
   location: string;
-  type: enums.JobType;
+  type: JobType;
   vacancy: number;
   deadline: Date;
   tags: string;
@@ -54,7 +54,7 @@ export type JobUpdateInput = Partial<{
 export type JobSearchParams = {
   query?: string;
   location?: string;
-  type?: enums.JobType;
+  type?: JobType;
   tags?: string;
   minVacancy?: number;
   deadlineAfter?: Date;

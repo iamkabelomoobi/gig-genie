@@ -1,11 +1,11 @@
-import { enums } from '@kasi-flow/shared';
+import { UserRole } from "@gig-genie/shared";
 
 export type User = {
   id: string;
   email: string;
   phone: string;
   password?: string;
-  role: enums.UserRole;
+  role: UserRole;
   isVerified: boolean;
   createdAt: Date;
   updatedAt: Date;
@@ -16,7 +16,7 @@ export type UserCreateInput = {
   email: string;
   phone: string;
   password?: string;
-  role?: enums.UserRole;
+  role?: UserRole;
 };
 
 export type UserUpdateInput = Partial<{
