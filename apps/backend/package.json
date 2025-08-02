@@ -2,6 +2,12 @@
   "name": "@gig-genie/backend",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "db:generate": "npx drizzle-kit generate --config=drizzle.config.ts",
+    "db:migrate": "npx tsx src/db/migrate.ts",
+    "db:reset": "drizzle-kit reset --schema src/db/schemas/index.ts --out-dir src/db/migrations",
+    "db:seed": "node src/db/seed.ts"
+  },
   "nx": {
     "targets": {
       "build": {
