@@ -28,4 +28,8 @@ export const env = cleanEnv(process.env, {
     desc: 'How long to wait for a database connection (ms)',
     default: 5000,
   }),
+  LogtailAccessToken: str({
+    desc: 'Logtail access token for logging',
+    default: '',
+  }),
 });
