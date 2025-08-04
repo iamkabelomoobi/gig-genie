@@ -4,7 +4,7 @@ import { adminRepository } from '../../../db/repositories';
 
 export const adminMutations = {
   createAdmin: (async (_, args: AdminCreateInput) => {
-    const newAdmin = await adminRepository.create(args);
-    return newAdmin;
+    return await adminRepository.create(args);
+
   }) as ResolverFn<AdminCreateInput>,
 };
