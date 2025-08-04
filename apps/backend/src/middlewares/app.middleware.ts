@@ -19,7 +19,7 @@ export const configureMiddlewares = (app: Application): void => {
         if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
         } else {
-          callback(null, false);
+          callback(new Error('Not allowed by CORS'));
         }
       },
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
