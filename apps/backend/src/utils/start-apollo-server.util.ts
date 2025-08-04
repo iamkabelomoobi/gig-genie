@@ -80,10 +80,15 @@ export const startServer = async (
     // Start Apollo Server
     await apolloServer.start();
 
+    // Read allowed origins from environment variable, fallback to localhost
+    const allowedOrigins = process.env.CORS_ORIGINS
+      ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
+      : ['http://localhost:3000'];
+
     app.use(
       '/graphql',
       cors<cors.CorsRequest>({
-        origin: ['http://localhost:3000'],
+        origin: allowedOrigins,
         credentials: true,
       }),
       express.json(),
