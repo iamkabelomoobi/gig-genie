@@ -1,0 +1,34 @@
+services:
+  db:
+    restart: unless-stopped
+    image: postgres:15.4-alpine3.18
+    ports:
+      - '5437:5432'
+    volumes:
+      - gigGenieDbStore:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: gig_genie
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d gig_genie']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+
+  mail:
+    restart: unless-stopped
+    image: maildev/maildev:latest
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+
+volumes:
+  gigGenieDbStore:
